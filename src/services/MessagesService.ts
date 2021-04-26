@@ -1,9 +1,9 @@
-import { getCustomRepository, Repository } from "typeorm"
-import { MessagesRepository } from "../repositories/MessagesRepository"
-import { Message } from "../entities/Messages"
+import { getCustomRepository, Repository } from "typeorm";
+import { MessagesRepository } from "../repositories/MessagesRepository";
+import { Message } from "../entities/Messages";
 
 interface ImessageCreate {
-    admin_id: string;
+    admin_id?: string;
     text: string;
     user_id: string;
 }
@@ -24,7 +24,7 @@ class MessageService {
             user_id
         });
 
-        await this.messagesRepository.save(message)
+        await this.messagesRepository.save(message);
 
         return message;
     }
@@ -32,12 +32,12 @@ class MessageService {
     async listByUser(user_id: string){
 
         const list = await this.messagesRepository.find({
-            where: {user_id} ,
-            relations: ["user"]
+            where: {user_id},
+            relations: ["user"],
         });
 
         return list;
     }
 }
 
-export { MessageService }
+export { MessageService };

@@ -1,4 +1,4 @@
-import {request, Router} from "express"
+import { Router} from "express"
 import { SettingsController } from "./controllers/SettingsController";
 import { UsersController } from "./controllers/UsersController";
 import { MessageController } from "./controllers/MessagesController";
@@ -10,10 +10,12 @@ const usersController = new UsersController();
 const messagesController = new MessageController();
 
 routes.post("/settings", settingsController.create);
+routes.get("/settings/:username", settingsController.findByUsername);
+routes.put("/settings/:username", settingsController.update);
 
-routes.post("/Users", usersController.create);
+routes.post("/users", usersController.create);
 
-routes.post("/Messages", messagesController.create);
+routes.post("/messages", messagesController.create);
 
-routes.get("/Messages/:id", messagesController.showByUser);
+routes.get("/messages/:id", messagesController.showByUser);
 export {routes};

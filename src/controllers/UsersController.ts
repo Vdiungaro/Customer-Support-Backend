@@ -1,5 +1,5 @@
-import {Request, response, Response} from "express"
-import { UserService } from "../services/UsersService"
+import {Request, Response} from "express";
+import { UserService } from "../services/UsersService";
 
 
 class UsersController {
@@ -11,9 +11,9 @@ class UsersController {
 
         const user = await userService.create(email);
 
-        return response.json(user);
+        return res.json(user);
     }
 
 }
 
-export {UsersController}
+export {UsersController};

@@ -10,7 +10,7 @@ export class CreateMessages1619115570449 implements MigrationInterface {
                     {
                         name: "id",
                         type: "uuid",
-                        isPrimary: true
+                        isPrimary: true,
                     },
                     {
                         name: "admin_id",
@@ -47,7 +47,7 @@ export class CreateMessages1619115570449 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("messages")
+        await queryRunner.dropTable("messages");
     }
 
 }

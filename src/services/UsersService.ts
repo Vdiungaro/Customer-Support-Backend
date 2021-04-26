@@ -14,8 +14,8 @@ class UserService {
         // Verificar se usuario existe
 
         const userExists = await this.usersRepository.findOne({ 
-            email
-        })
+            email,
+        });
 
         if(userExists) {
             return userExists;
@@ -29,6 +29,12 @@ class UserService {
 
         return user;
     }
+
+    async findByEmail(email: string) {
+        const user = await this.usersRepository.findOne({ email });
+    
+        return user;
+      }
 }
 
-export { UserService }
+export { UserService };
